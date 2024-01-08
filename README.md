@@ -1,4 +1,4 @@
-# Sample Python Flask Server with Wasmer
+# Python Flask Starter for Wasmer
 
 This is a sample repo for running a python's Flask server on Wasmer Edge.
 
@@ -7,7 +7,7 @@ This is a sample repo for running a python's Flask server on Wasmer Edge.
 ### Clone the repo
 
 ```shell
-git clone https://github.com/wasmerio/python-flask-example.git
+git clone https://github.com/wasmer-examples/python-flask-starter.git
 ```
 
 ### Setup the Virtual Environment
@@ -29,12 +29,12 @@ Press CTRL+C to quit
 
 ## Running it using wasmer registry
 
-This package is published to wasmer registry as [`wasmer/python-http-server`](https://wasmer.io/wasmer/python-http-server)
+This package is published to wasmer registry as [`wasmer/python-flask-starter`](https://wasmer.io/wasmer/python-flask-starter)
 
 You can try this locally.
 
 ```shell
-$ wasmer run wasmer/python-flask-worker --net
+$ wasmer run wasmer/python-flask-starter --net
  * Serving Flask app '/src/main'
  * Debug mode: on
 WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -50,6 +50,6 @@ This would start an http server on `http://127.0.0.1:5000`
 
 ```text
   App Info
-> App Name: wasmer-python-flask-server-worker
+> App Name: wasmer-python-flask-starter
 > App URL: https://wasmer-python-flask-server-worker.wasmer.app
 ```
