@@ -1,7 +1,7 @@
 [package]
-name = "wasmer/python-flask-worker"
+name = "wasmer/python-flask-starter"
 version = "0.1.1"
-description = "wasmer/python-flask-worker py worker"
+description = "Python Flask starter"
 readme = "README.md"
 
 [dependencies]
