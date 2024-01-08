@@ -1,7 +1,7 @@
 ---
 kind: wasmer.io/App.v0
 name: wasmer-python-flask-server-starter
-package: wasmer/python-flask-server@0.1.0
+package: wasmer/python-flask-starter
 cli_args:
   - -m
   - flask
