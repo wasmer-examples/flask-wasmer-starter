@@ -1,55 +1,56 @@
-# Python Flask Starter for Wasmer
+This is a simple [Flask](https://flask.palletsprojects.com/en/3.0.x/) Web Server template
 
-This is a sample repo for running a python's Flask server on Wasmer Edge.
 
-## Running it locally
+## Usage
 
-### Clone the repo
+First, create a local virtual environment:
 
-```shell
-git clone https://github.com/wasmer-examples/python-flask-starter.git
-```
-
-### Setup the Virtual Environment
-
-```shell
+```bash
 python3 -m venv .env
+source .env/bin/activate
 ```
 
-### Run it locally using the command below
+Install the dependencies with:
+
+```bash
+pip install Flask
+```
+
+Then, you can run the Flask app (`src/main.py`) with Python:
+
+```bash
+$ python src/main.py
+ * Serving Flask app '/src/main'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+```
+
+Or you can run it also locally with Wasmer:
 
 ```shell
 $ wasmer run . --net
- * Serving Flask app '/src/main'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
 ```
 
-## Running it using wasmer registry
+> [!NOTE]
+> You will need to have Wasmer installed (check out [the docs to install the Wasmer CLI](https://docs.wasmer.io/install)!). 
+> The `--net` flag is required to enable networking support in Wasmer.
 
-This package is published to wasmer registry as [`wasmer/python-flask-starter`](https://wasmer.io/wasmer/python-flask-starter)
+You will see the output from the Python application in the console. The above command will run the Python worker locally on port `3000`.
 
-You can try this locally.
 
-```shell
-$ wasmer run wasmer/python-flask-starter --net
- * Serving Flask app '/src/main'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
+## Deploy on Wasmer Edge
+
+The easiest way to deploy your Flask app is to use the [Wasmer Edge](https://wasmer.io/products/edge).
+
+Live example: https://wasmer-python-flask-server-worker.wasmer.app
+
+Run this commmand to deploy to Wasmer Edge:
+
+```bash
+wasmer deploy
 ```
 
-This would start an http server on `http://127.0.0.1:5000`
-
-![Python Flask Server](python-flask-server.png)
-
-## Live on Wasmer Edge
-
-```text
-  App Info
-> App Name: wasmer-python-flask-starter
-> App URL: https://wasmer-python-flask-server-worker.wasmer.app
-```
+> [!NOTE]
+> You will need to change the namespace in `wasmer.toml` to your own namespace and app name in `app.yaml` to your own app name.
