@@ -1,15 +1,16 @@
 [package]
-name = "wasmer/python-flask-starter"
-version = "0.1.1"
-description = "Python Flask starter"
+name = "wasmer-examples/flask-wasmer-starter"
+version = "0.2.0"
+description = "Flask Wasmer starter package"
 readme = "README.md"
+repository = "https://github.com/wasmer-examples/flask-wasmer-starter"
 
 [dependencies]
 "wasmer/python" = "^3.12.6"
 
 [fs]
 "/src" = "./src"
-"/cpython/lib/python3.12" = "./.env/lib/python3.11"
+"/cpython/lib/python3.12" = "./.env/lib/python3.9"
 
 [[command]]
 name = "script"

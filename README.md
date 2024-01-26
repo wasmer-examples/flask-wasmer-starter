@@ -27,17 +27,17 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 
-Or you can run it also locally with Wasmer:
 
-```shell
-$ wasmer run . --net
+You can run the Flask example using Wasmer (check out the [install guide](https://docs.wasmer.io/install)):
+
+```bash
+wasmer run wasmer-examples/flask-wasmer-starter --net
 ```
 
-> [!NOTE]
-> You will need to have Wasmer installed (check out [the docs to install the Wasmer CLI](https://docs.wasmer.io/install)!). 
-> The `--net` flag is required to enable networking support in Wasmer.
+> [!TIP]
+> You can also run `wasmer run . --net` in the root of this repo
 
-You will see the output from the Python application in the console. The above command will run the Python worker locally on port `3000`.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the Flask application.
 
 
 ## Deploy on Wasmer Edge

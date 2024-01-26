@@ -4,4 +4,4 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return "Hello, from Wasmer Edge 🚀"
+    return "Hello, from Flask in Wasmer Edge 🚀"
