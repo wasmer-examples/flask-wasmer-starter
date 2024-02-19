@@ -22,8 +22,19 @@ jobs:
         uses: actions/checkout@v2
       - name: Install Wasmer
         uses: wasmerio/setup-wasmer@v2
-      - name: Deploy app to wasmer.wtf
-        run: wasmer deploy --registry="https://registry.wasmer.wtf/graphql" --token=${{ secrets.WASMER_CIUSER_DEV_TOKEN }} --publish-package --non-interactive --no-wait --no-persist-id --owner wasmer-tests
-        continue-on-error: true
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+      - name: Set up virtual env
+        run: |
+          python -m venv .env
+          source .env/bin/activate
+      - name: Install Flask
+        run: |
+          pip install Flask
+      # - name: Deploy app to wasmer.wtf
+      #   run: wasmer deploy --registry="https://registry.wasmer.wtf/graphql" --token=${{ secrets.WASMER_CIUSER_DEV_TOKEN }} --publish-package --non-interactive --no-wait --no-persist-id --owner wasmer-tests
+      #   continue-on-error: true
       - name: Deploy app to wasmer.io
-        run: wasmer deploy --registry="https://registry.wasmer.io/graphql" --token=${{ secrets.WASMER_CIUSER_PROD_TOKEN }} --publish-package --non-interactive --no-wait --no-persist-id --owner wasmer-tests
+        run: wasmer deploy --token=${{ secrets.WASMER_CIUSER_PROD_TOKEN }} --publish-package --non-interactive --no-wait --no-persist-id --owner wasmer-tests
