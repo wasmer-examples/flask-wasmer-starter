@@ -34,6 +34,8 @@ You can run the Flask example using Wasmer (check out the [install guide](https:
 wasmer run wasmer-examples/flask-wasmer-starter --net
 ```
 
+**Note: you may need to update `wasmer.toml` filesystem, to point ot the right path for the environment depending on your Python version (currently using `./.env/lib/python3.9`)**.
+
 > [!TIP]
 > You can also run `wasmer run . --net` in the root of this repo
 
