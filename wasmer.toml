@@ -10,7 +10,7 @@ repository = "https://github.com/wasmer-examples/flask-wasmer-starter"
 
 [fs]
 "/src" = "./src"
-"/cpython/lib/python3.12" = "./.env/lib/python3.9"
+"/cpython/lib/python3.12" = "./.env/lib/python3.12"
 
 [[command]]
 name = "script"
