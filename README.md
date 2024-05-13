@@ -31,13 +31,10 @@ Press CTRL+C to quit
 You can run the Flask example using Wasmer (check out the [install guide](https://docs.wasmer.io/install)):
 
 ```bash
-wasmer run wasmer-examples/flask-wasmer-starter --net
+wasmer run . --net
 ```
 
 **Note: you may need to update `wasmer.toml` filesystem, to point ot the right path for the environment depending on your Python version (currently using `./.env/lib/python3.9`)**.
-
-> [!TIP]
-> You can also run `wasmer run . --net` in the root of this repo
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the Flask application.
 
@@ -53,6 +50,3 @@ Run this commmand to deploy to Wasmer Edge:
 ```bash
 wasmer deploy
 ```
-
-> [!NOTE]
-> You will need to change the namespace in `wasmer.toml` to your own namespace and app name in `app.yaml` to your own app name.
