@@ -1,5 +1,5 @@
 [dependencies]
-"wasmer/python" = "^3.12.6"
+"wasmer/python" = "~3.12.6"
 
 [fs]
 "/src" = "./src"
