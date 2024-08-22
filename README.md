@@ -31,7 +31,7 @@ Press CTRL+C to quit
 You can run the Flask example using Wasmer (check out the [install guide](https://docs.wasmer.io/install)):
 
 ```bash
-wasmer run . --net
+wasmer run .
 ```
 
 **Note: you may need to update `wasmer.toml` filesystem, to point ot the right path for the environment depending on your Python version (currently using `./.env/lib/python3.9`)**.
