@@ -1,52 +1,34 @@
-This is a simple [Flask](https://flask.palletsprojects.com/en/3.0.x/) Web Server template
+# Flask Hello World + Wasmer
 
+This example shows how to deploy a minimal **Flask** application to **Wasmer Edge**.
 
-## Usage
+## Demo
 
-First, create a local virtual environment:
+https://wasmer-python-flask-server-worker.wasmer.app/
 
-```bash
-python3 -m venv .env
-source .env/bin/activate
-```
+## How it Works
 
-Install the dependencies with:
+`src/main.py` defines the application:
 
-```bash
-pip install Flask
-```
+* `app = Flask(__name__)` creates the WSGI app Wasmer will import (`src.main:app`).
+* `@app.route("/")` responds with a simple string (“Hello, from Flask in Wasmer Edge 🚀”).
+* The `__main__` block runs the built-in server on host `0.0.0.0` and port `8000` for local testing.
 
-Then, you can run the Flask app (`src/main.py`) with Python:
+Because the project has no external dependencies beyond Flask itself, it is ideal for learning the deployment flow.
 
-```bash
-$ python src/main.py
- * Serving Flask app '/src/main'
- * Debug mode: on
-WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
- * Running on http://127.0.0.1:5000
-Press CTRL+C to quit
-```
-
-
-You can run the Flask example using Wasmer (check out the [install guide](https://docs.wasmer.io/install)):
+## Running Locally
 
 ```bash
-wasmer run .
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python src/main.py
 ```
 
-**Note: you may need to update `wasmer.toml` filesystem, to point ot the right path for the environment depending on your Python version (currently using `./.env/lib/python3.9`)**.
+Visit `http://127.0.0.1:8000/` to view the greeting.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the Flask application.
+## Deploying to Wasmer (Overview)
 
-
-## Deploy on Wasmer Edge
-
-The easiest way to deploy your Flask app is to use the [Wasmer Edge](https://wasmer.io/products/edge).
-
-Live example: https://wasmer-python-flask-server-worker.wasmer.app
-
-Run this commmand to deploy to Wasmer Edge:
-
-```bash
-wasmer deploy
-```
+1. Install dependencies during your build (`pip install -r requirements.txt`).
+2. Expose the app as `src.main:app` in your Wasmer configuration (e.g., via `wasmer.toml`) and run `gunicorn` or the Flask dev server (`python -m flask --app src.main run --host 0.0.0.0 --port $PORT`).
+3. Deploy and access `https://<your-subdomain>.wasmer.app/`.
